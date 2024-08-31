@@ -97,7 +97,7 @@ oa2bibliometrix <- function(df) {
   df$DB <- "OPENALEX"
   df$JI <- shorten_oaid(df$so_id)
   df$J9 <- df$JI
-  df$PY <- df$publication_year
+  df$PY <- as.numeric(df$publication_year)
   df$TC <- df$cited_by_count
   df$DI <- gsub("https://doi.org/","",df$doi)
   df <-  df[!names(df) %in% c("display_name","ab","so","type","publication_year","cited_by_count")]
